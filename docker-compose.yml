@@ -5,33 +5,31 @@ services:
     hostname: 'todo_client'
     container_name: 'todo_client'
     stdin_open: true
-    links:
-      - "api"
     ports:
       - 3000:3000
   api:
     build: ./app/api
     hostname: 'todo_api'
     container_name: 'todo_api'
-    links:
-      - "mxs1"
     ports:
       - 8080:8080
-  mdb1:
-    image: mariadb:latest
-    hostname: 'mdb'
-    container_name: 'mdb'
+  postgres:
+    image: postgres:14.0
+    hostname: 'postgres'
+    container_name: 'postgres'
     ports:
-      - 3307:3306
+      - 5432:5432
     environment:
-      MARIADB_ROOT_PASSWORD: 'Password123!'
-  mxs1:
-    image: mariadb/maxscale:6.1.1
-    hostname: 'mxs'
-    container_name: 'mxs'
-    links:
-      - "mdb1"
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=mangodb
+  mangodb:
+    image: ghcr.io/mangodb-io/mangodb:latest
+    hostname: 'mangodb'
+    container_name: 'mangodb'
+    command:
+      [
+        '-listen-addr=:27017',
+        '-postgresql-url=postgres://postgres@postgres:5432/mangodb',
+      ]
     ports:
-      - 3308:3306
-      - 8989:8989
-      - 17017:17017
+      - 27017:27017

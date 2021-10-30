@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const connectionUrl = 'mongodb://mxs:17017';
+const connectionUrl = 'mongodb://mangodb:27017/mangodb';
 
 let db;
 

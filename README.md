@@ -1,4 +1,34 @@
-# Get Started with MariaDB's NoSQL Listener 
+This is a fork of [MariaDB's NoSQL Listener example](https://github.com/MangoDB-io/dev-example-nosql-listener)
+that replaces MariaDB MaxScale and MariaDB Community Server with
+[MangoDB](https://github.com/MangoDB-io/MangoDB) and PostgreSQL.
+
+# Quickstart
+
+```
+$ git clone https://github.com/MangoDB-io/dev-example-nosql-listener.git
+
+$ cd dev-example-nosql-listener
+
+$ docker-compose up -d
+
+# wait several seconds for build to finish and PostgreSQL to start
+
+$ docker-compose exec postgres psql -U postgres -d mangodb -c 'CREATE SCHEMA todo'
+```
+
+`docker-compose exec` command creates `todo` PostgreSQL schema in `mangodb` PostgreSQL database that would act
+like `todo` MangoDB database.
+
+Then open [http://localhost:3000/](http://localhost:3000/) and use that example application.
+
+If you have a recent enough `mongosh`, you can use to connect to MangoDB. For example:
+[![asciicast](https://asciinema.org/a/WVWPgQv5LmWqGliU8RDxUqZW3.svg)](https://asciinema.org/a/WVWPgQv5LmWqGliU8RDxUqZW3)
+
+Original README follows.
+
+---
+
+# Get Started with MariaDB's NoSQL Listener
 
 This repository contains information on how to create and use a [MariaDB MaxScale](https://mariadb.com/products/enterprise/components/#maxscale) NoSQL Listener with [MariaDB Community Server](https://mariadb.com/products/community-server/).
 
