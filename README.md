@@ -10,14 +10,7 @@ $ git clone https://github.com/MangoDB-io/dev-example-nosql-listener.git
 $ cd dev-example-nosql-listener
 
 $ docker-compose up -d
-
-# wait several seconds for build to finish and PostgreSQL to start
-
-$ docker-compose exec postgres psql -U postgres -d mangodb -c 'CREATE SCHEMA todo'
 ```
-
-`docker-compose exec` command creates `todo` PostgreSQL schema in `mangodb` PostgreSQL database that would act
-like `todo` MangoDB database.
 
 Then open [http://localhost:3000/](http://localhost:3000/) and use that example application.
 
@@ -102,7 +95,7 @@ For more information on the full capabilities see the documentation [here](https
 3. Add a new user that MaxScale can use to connect to and communicate with MariaDB Community Server. For this you have two options.
 
      a. **Option 1**: Connecting to the MariaDB Community Server instance, contained within the mdb container, and using the MariaDB command-line client contained within the container, via docker, to execute the script, add_maxscale_user.sql.
-	
+
 	```bash
 	$ docker exec -i mdb mariadb --user root -pPassword123! < configuration/add_maxscale_user.sql
 	```
@@ -149,13 +142,13 @@ If you've used the TODO application to add new `tasks` you can now explore the s
 
 You can connect to the MariaDB Community Server instance, contained within the `mdb` container, directly by using the MariaDB client.
 
-```bash 
+```bash
 $ mariadb --host 127.0.0.1 --port 3307 --user root -pPassword123!
 ```
 
 or by using the MariaDB client, via Docker, that's included within the `mdb` container.
 
-```bash 
+```bash
 $ docker exec -it mdb mariadb --user root -pPassword123!
 ```
 
@@ -226,7 +219,7 @@ MariaDB [todo]> select json_value(doc, '$.description') description, json_value(
 
 ### MaxScale GUI <a name="maxscale-gui"></a>
 
-The [MaxScale graphical user interface (GUI)](https://mariadb.com/resources/blog/getting-started-with-the-mariadb-maxscale-gui/) provides another way you that you can explore the data. 
+The [MaxScale graphical user interface (GUI)](https://mariadb.com/resources/blog/getting-started-with-the-mariadb-maxscale-gui/) provides another way you that you can explore the data.
 
 #### **Logging In**
 
@@ -306,7 +299,7 @@ Optionally, if you'd prefer to run the [TODO app](app) directly on your machine,
 
 3. Update the MongoDB driver connection string in [app/api/db.js](app/api/db.js) to `'mongodb://127.0.0.1:17017'`.
 
-4. Start the `client` and `api` applications. 
+4. Start the `client` and `api` applications.
 
     Within separate terminals...
 
@@ -324,10 +317,9 @@ Optionally, if you'd prefer to run the [TODO app](app) directly on your machine,
 
 ## Support and Contribution <a name="support-contribution"></a>
 
-Thanks so much for taking a look at this repository! As the NoSQL Listener capability is in the early stages, there's plenty of potential for improvement. 
+Thanks so much for taking a look at this repository! As the NoSQL Listener capability is in the early stages, there's plenty of potential for improvement.
 
 If you have any questions, comments, or would like to contribute to this or future projects like this please reach out to us directly at [developers@mariadb.com](mailto:developers@mariadb.com) or on [Twitter](https://twitter.com/mariadb).
 
 ## License <a name="license"></a>
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
-

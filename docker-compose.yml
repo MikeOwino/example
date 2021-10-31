@@ -33,3 +33,11 @@ services:
       ]
     ports:
       - 27017:27017
+  setup:
+    image: postgres:14.0
+    hostname: 'setup'
+    container_name: 'setup'
+    restart: 'on-failure'
+    depends_on:
+      - 'postgres'
+    entrypoint: ["sh", "-c", "psql -h postgres -U postgres -d mangodb -c 'CREATE SCHEMA IF NOT EXISTS todo'"]
