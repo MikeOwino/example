@@ -12,7 +12,7 @@ $ cd example
 $ docker-compose up -d
 ```
 
-Then open [http://localhost:3000/](http://localhost:3000/) and use that example application.
+Then open [http://localhost:8888/](http://localhost:8888/) and use that example application.
 
 If you have a recent enough `mongosh`, you can use to connect to MangoDB. For example:
 [![asciicast](https://asciinema.org/a/BhBD85JpeLPHrSdyL1jzNFkFq.svg)](https://asciinema.org/a/BhBD85JpeLPHrSdyL1jzNFkFq)

@@ -6,7 +6,7 @@ import close from '../images/close.png';
 
 export default class Dashboard extends Component {
 
-    todo_api_url = "http://127.0.0.1:8080/api/tasks";
+    todo_api_url = "http://localhost:8888/api/tasks";
 
     constructor(props) {
         super(props);
