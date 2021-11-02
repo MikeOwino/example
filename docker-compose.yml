@@ -5,14 +5,10 @@ services:
     hostname: 'todo_client'
     container_name: 'todo_client'
     stdin_open: true
-    ports:
-      - 3000:3000
   api:
     build: ./app/api
     hostname: 'todo_api'
     container_name: 'todo_api'
-    ports:
-      - 8080:8080
   nginx:
     image: nginx
     hostname: 'nginx'

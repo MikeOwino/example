@@ -9,7 +9,17 @@ $ git clone https://github.com/MangoDB-io/example.git
 
 $ cd example
 
+$ docker-compose pull
+
 $ docker-compose up -d
+```
+
+Note: if you are updating from the previous version, run:
+
+```
+$ docker-compose down
+
+$ docker system prune --volumes --force
 ```
 
 Then open [http://localhost:8888/](http://localhost:8888/) and use that example application.
