@@ -30,6 +30,7 @@ services:
     image: ghcr.io/mangodb-io/mangodb:latest
     hostname: 'mangodb'
     container_name: 'mangodb'
+    restart: 'on-failure'
     command:
       [
         '-listen-addr=:27017',
